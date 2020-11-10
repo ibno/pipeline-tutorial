@@ -3,9 +3,11 @@ pipeline {
 
     agent none
 
-    stage('Build') {
-        steps {
-            echo 'Build'
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Build'
+            }
         }
     }
 }
