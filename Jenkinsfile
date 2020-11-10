@@ -1,7 +1,7 @@
 #!/bin/groovy
 pipeline {
 
-    agent none
+    agent any
 
     parameters {
         booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Deploy?')
