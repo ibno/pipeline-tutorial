@@ -24,9 +24,12 @@ pipeline {
         }
         stage('Release') {
             when {
-                expression: params.MAKE_RELEASE
+                script {
+                    expression: params.MAKE_RELEASE
+                }
             }
             steps {
+
                 sh 'mvn gitflow:release'
             }
         }
