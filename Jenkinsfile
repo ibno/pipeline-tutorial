@@ -14,6 +14,7 @@ pipeline {
                 echo "Build"
                 script {
                     files = findFiles(glob: "**/*.yaml")
+                    print files
                 }
             }
         }
