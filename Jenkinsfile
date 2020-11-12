@@ -6,7 +6,7 @@ pipeline {
     parameters {
         booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Deploy?')
         string(name: 'VERSION', defaultValue: 'latest', description: 'Version to build')
-        booleanParam(name: "MAKE_RELEASE", default: false, description: "Release and tag")
+        booleanParam(name: "MAKE_RELEASE", defaultValue: false, description: "Release and tag")
     }
 
     stages {
