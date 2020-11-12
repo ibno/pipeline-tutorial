@@ -14,6 +14,9 @@ pipeline {
                 echo "Build"
                 script {
                     files = findFiles(glob: "**/*.yaml")
+                    for (file in files) {
+                        print file.getPath()
+                    }
                     print files
                 }
             }
