@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo "Build"
                 script {
-                    files = findFiles glob: "**/*.yaml"
+                    files = findFiles(glob: "**/*.yaml")
                 }
             }
         }
