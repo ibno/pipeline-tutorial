@@ -12,6 +12,9 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Build"
+                script {
+                    files = findFiles glob: "**/*.yaml"
+                }
             }
         }
     }
