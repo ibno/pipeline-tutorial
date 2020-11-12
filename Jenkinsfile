@@ -24,8 +24,8 @@ pipeline {
         }
         stage('Release') {
             when {
-                script {
-                    expression: params.MAKE_RELEASE
+                expression {
+                    params.MAKE_RELEASE
                 }
             }
             steps {
