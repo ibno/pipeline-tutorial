@@ -3,10 +3,11 @@ pipeline {
 
     agent any
 
-//    parameters {
-//        booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Deploy?')
-//        string(name: 'VERSION', defaultValue: 'latest', description: 'Version to build')
-//    }
+    parameters {
+        booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Deploy?')
+        string(name: 'VERSION', defaultValue: 'latest', description: 'Version to build')
+        booleanParam(name: "MAKE_RELEASE", defaultValue: false, description: "Release and tag")
+    }
 
     stages {
         stage('Build') {
@@ -19,6 +20,17 @@ pipeline {
                     }
                     print files
                 }
+            }
+        }
+        stage('Release') {
+            when {
+                expression {
+                    params.MAKE_RELEASE
+                }
+            }
+            steps {
+
+                sh 'mvn gitflow:release'
             }
         }
     }
