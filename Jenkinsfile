@@ -22,7 +22,7 @@ pipeline {
                 }
             }
         }
-        stage('Release') {
+        stage('Release ' + params.VERSION) {
             when {
                 expression {
                     params.MAKE_RELEASE
