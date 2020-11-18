@@ -12,16 +12,14 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                wrappers {
                     environmentDashboard {
                         environmentName('Environment-1')
                         componentName('WebApp-1')
                         buildNumber('Version-1')
                     }
-                }
             }
         }
-        stage('Release ${params.VERSION}') {
+        stage('Release') {
             when {
                 expression {
                     params.MAKE_RELEASE
