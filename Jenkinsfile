@@ -12,13 +12,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Build"
-                script {
-                    files = findFiles(glob: "**/a/build/*.yaml")
-                    for (file in files) {
-                        print file.getPath()
+                wrappers {
+                    environmentDashboard {
+                        environmentName('Environment-1')
+                        componentName('WebApp-1')
+                        buildNumber('Version-1')
                     }
-                    print files
                 }
             }
         }
